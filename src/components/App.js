@@ -36,7 +36,7 @@ function App() {
   }
 
   return (
-    <body className="page">
+    <>
     <Header />
     <Main
       onEditProfile={handleEditProfileClick}
@@ -102,7 +102,7 @@ function App() {
 
     </PopupWithForm>
 
-  </body>
+  </>
   );
 }
 
