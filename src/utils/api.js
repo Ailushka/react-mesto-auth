@@ -27,7 +27,7 @@ class Api {
   }
 
   // редактирование профиля (меняем данные пользователя)
-  patchUserInfo(name, job) {
+  patchUserInfo(user) {
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: {
@@ -35,8 +35,8 @@ class Api {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: name,
-        about: job
+        name: user.name,
+        about: user.about
       })
     })
     .then(this._checkResponse)
@@ -92,7 +92,7 @@ class Api {
   }
 
   // обновление аватара пользователя
-  patchUserAvatar(avatar) {
+  patchUserAvatar(user) {
     return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
       headers: {
@@ -100,7 +100,7 @@ class Api {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        avatar: avatar
+        avatar: user.avatar
       })
     })
     .then(this._checkResponse)
