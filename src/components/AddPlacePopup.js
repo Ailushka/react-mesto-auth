@@ -29,15 +29,35 @@ function AddPlacePopup(props) {
     <PopupWithForm
       isOpen={props.isOpen}
       onClose={props.onClose}
-      title={'Новое место'}
+      title='Новое место'
       name={'add-form'}
-      buttonTitle={'Создать'}
+      buttonTitle='Создать'
       onSubmit={handleSubmit}
     >
       <fieldset className="form__content form__add-card">
-        <input className="form__item form__item_type_card-name" value={placeName} onChange={handlePlaceNameChange} type="text" name="name" placeholder="Название" minLength="2" maxLength="30" id="card-name" required noValidate />
+        <input
+          className="form__item form__item_type_card-name"
+          value={placeName}
+          onChange={handlePlaceNameChange}
+          type="text"
+          name="name"
+          placeholder="Название"
+          minLength="2"
+          maxLength="30"
+          id="card-name"
+          required
+        />
         <span id="card-name-error" className="form__item-error"></span>
-        <input className="form__item form__item_type_card-link" value={placeLink} onChange={handlePlaceLinkChange} type="url" name="link" placeholder="Ссылка на картинку" id="card-link" required noValidate />
+        <input
+          className="form__item form__item_type_card-link"
+          value={placeLink}
+          onChange={handlePlaceLinkChange}
+          type="url"
+          name="link"
+          placeholder="Ссылка на картинку"
+          id="card-link"
+          required
+        />
         <span id="card-link-error" className="form__item-error"></span>
       </fieldset>
 

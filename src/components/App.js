@@ -15,7 +15,7 @@ function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
 
@@ -52,18 +52,10 @@ function App() {
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
 
-    isLiked
-      ? api.deleteLike(card._id)
-        .then((newCard) => {
-            setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-        })
-        .catch(err => console.log(err))
-      : api.putLike(card._id)
-        .then((newCard) => {
-            setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-        })
-        .catch(err => console.log(err));
-}
+    api.toggleLikeCardStatus(card._id, !isLiked).then((newCard) => {
+        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+    });
+  }
 
   function handleCardDelete(card) {
     api.deleteCard(card._id)
@@ -76,7 +68,7 @@ function App() {
   function handleAddPlaceSubmit(item) {
     api.postCard(item)
       .then((newCard) => {
-        setCards([newCard, ...cards]);
+        setCards([...cards, newCard]);
       })
       .then(closeAllPopups)
       .catch(err => console.log(err))
@@ -102,11 +94,11 @@ function App() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
-    setSelectedCard(false);
+    setSelectedCard(null);
   }
 
   return (
-    <>
+
       <CurrentUserContext.Provider value={currentUser}>
         <Header />
         <Main
@@ -150,7 +142,7 @@ function App() {
           onUpdateAvatar={handleUpdateAvatar}
         />
       </CurrentUserContext.Provider>
-  </>
+
   );
 }
 

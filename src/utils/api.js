@@ -69,21 +69,10 @@ class Api {
     .then(this._checkResponse)
   }
 
-  // постановка лайка
-  putLike(cardId) {
+  // постановка или снятие лайка
+  toggleLikeCardStatus(cardId, hasLike) {
     return fetch(`${this._url}/cards/likes/${cardId}`, {
-      method: 'PUT',
-      headers: {
-        authorization: this._password,
-      }
-    })
-    .then(this._checkResponse)
-  }
-
-  // снятие лайка
-  deleteLike(cardId) {
-    return fetch(`${this._url}/cards/likes/${cardId}`, {
-      method: 'DELETE',
+      method: hasLike ? 'PUT' : 'DELETE',
       headers: {
         authorization: this._password,
       }
