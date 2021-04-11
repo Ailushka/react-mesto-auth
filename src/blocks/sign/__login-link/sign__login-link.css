@@ -1,0 +1,15 @@
+.sign__login-link {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: calc(17 / 14);
+  color: white;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  transition: opacity .5s linear;
+}
+
+.sign__login-link:hover {
+  opacity: .8;
+}

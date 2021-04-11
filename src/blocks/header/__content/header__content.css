@@ -1,4 +1,7 @@
 .header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   margin: 0 0 40px;
   padding-top: 45px;
   min-height: 74px;

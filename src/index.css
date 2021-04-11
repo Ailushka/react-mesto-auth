@@ -5,6 +5,9 @@
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__content/header__content.css);
 @import url(./blocks/header/__logo/header__logo.css);
+@import url(./blocks/user-nav/user-nav.css);
+@import url(./blocks/user-nav/__item/user-nav__item.css);
+@import url(./blocks/user-nav/__link/user-nav__link.css);
 @import url(./blocks/profile/profile.css);
 @import url(./blocks/profile/__overlay/profile__overlay.css);
 @import url(./blocks/profile/__avatar/profile__avatar.css);
@@ -45,3 +48,13 @@
 @import url(./blocks/form/__item-error/form__item-error.css);
 @import url(./blocks/form/__item/_type/form__item_type_card-name.css);
 @import url(./blocks/form/__item/_type/form__item_type_error.css);
+@import url(./blocks/sign/sign.css);
+@import url(./blocks/sign/__title/sign__title.css);
+@import url(./blocks/sign/__item/sign__item.css);
+@import url(./blocks/sign/__button/sign__button.css);
+@import url(./blocks/sign/__login/sign__login.css);
+@import url(./blocks/sign/__login-text/sign__login-text.css);
+@import url(./blocks/sign/__login-link/sign__login-link.css);
+@import url(./blocks/infotooltip/infotooltip.css);
+@import url(./blocks/infotooltip/__status/infotooltip__status.css);
+@import url(./blocks/infotooltip/__image/infotooltip__image.css);

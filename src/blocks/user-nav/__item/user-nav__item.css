@@ -1,0 +1,10 @@
+.user-nav__item {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: calc(22 / 18);
+  margin-right: 24px;
+}
+
+.user-nav__item:last-child {
+  margin-right: 0;
+}

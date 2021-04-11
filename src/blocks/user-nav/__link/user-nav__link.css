@@ -1,0 +1,9 @@
+.user-nav__link {
+  color: white;
+  transition: opacity .5s linear;
+  text-decoration: none;
+}
+
+.user-nav__link:hover {
+  opacity: .8;
+}
