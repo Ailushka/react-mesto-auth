@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-function Register(props) {
+function Register({onRegister}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -16,7 +16,7 @@ function Register(props) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    props.onRegister(email, password);
+    onRegister(email, password);
   }
 
   return (
@@ -26,6 +26,7 @@ function Register(props) {
         <fieldset className="form__content form__sign">
           <input
             className="sign__item"
+            value={email}
             onChange={handleEmailChange}
             type="email"
             name="email"
@@ -35,6 +36,7 @@ function Register(props) {
           />
           <input
             className="sign__item"
+            value={password}
             onChange={handlePasswordChange}
             type="password"
             name="password"

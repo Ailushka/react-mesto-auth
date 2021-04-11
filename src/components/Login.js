@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Login(props) {
+function Login({onLogin}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,7 +15,7 @@ function Login(props) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    props.onLogin(email, password);
+    onLogin(email, password);
   }
 
   return (
@@ -25,6 +25,7 @@ function Login(props) {
         <fieldset className="form__content form__sign">
           <input
             className="sign__item"
+            value={email}
             onChange={handleEmailChange}
             type="email"
             name="email"
@@ -34,6 +35,7 @@ function Login(props) {
           />
           <input
             className="sign__item"
+            value={password}
             onChange={handlePasswordChange}
             type="password"
             name="password"

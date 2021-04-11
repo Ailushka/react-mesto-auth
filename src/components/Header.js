@@ -1,7 +1,7 @@
 import logo from '../images/logo.svg';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, Route, useLocation } from 'react-router-dom';
 
-function Header(props) {
+function Header({currentUserEmail, onLogOut}) {
 
   const location = useLocation();
 
@@ -13,29 +13,23 @@ function Header(props) {
           <li className="user-nav__item user-nav__item_type_email">
           {
             location.pathname === '/'
-            ? props.currentUserEmail
+            ? currentUserEmail
             : ''
           }
           </li>
           <li
             className="user-nav__item user-nav__item_type_sign"
-            onClick={location.pathname === '/' ? props.onLogOut : () => {}}
+            onClick={location.pathname === '/' ? onLogOut : () => {}}
           >
-          <Link className="user-nav__link" to={
-            location.pathname === '/sign-up'
-            ? '/sign-in'
-            : location.pathname === '/sign-in'
-            ? '/sign-up'
-            : '/sign-in'
-          }>
-          {
-            location.pathname === '/sign-up'
-            ? 'Войти'
-            : location.pathname === '/sign-in'
-            ? 'Регистрация'
-            : 'Выйти'
-          }
-          </Link>
+            <Route path="/sign-in">
+              <Link to="/sign-up" className="user-nav__link">Регистрация</Link>
+            </Route>
+            <Route path="/sign-up">
+              <Link to="/sign-in" className="user-nav__link">Войти</Link>
+            </Route>
+            <Route exact path="/">
+              <Link to="/sign-in" className="user-nav__link">Выход</Link>
+            </Route>
           </li>
         </ul>
       </div>
