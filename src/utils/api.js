@@ -1,5 +1,5 @@
 class Api {
-  constructor({ url, token }) {
+  constructor(url, token) {
     this._url = url;
     this._token = token;
   }
@@ -106,11 +106,10 @@ class Api {
   }
 }
 
-const api = new Api({
-  url: 'https://api.ailushka.nomoredomains.club',
-  token: `Bearer ${localStorage.getItem('jwt')}`
-});
+const api = new Api('https://api.ailushka.nomoredomains.club', `Bearer ${localStorage.getItem('jwt')}`
+);
 
 export default api;
 
 //mesto.nomoreparties.co/v1/cohort-20', 'aeac4cc4-9284-4753-bb8f-afa2eb1b5233
+// https://api.ailushka.nomoredomains.club
