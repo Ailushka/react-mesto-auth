@@ -55,7 +55,8 @@ class Auth {
   }
 }
 
-const auth = new Auth('api.ailushka.nomoredomains.club');
+const auth = new Auth('http://api.ailushka.nomoredomains.club/
+');
 
 export default auth;
 
