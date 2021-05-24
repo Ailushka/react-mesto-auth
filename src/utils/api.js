@@ -107,7 +107,7 @@ class Api {
 }
 
 const api = new Api({
-  url: 'api.ailushka.nomoredomains.club',
+  url: 'https://api.ailushka.nomoredomains.club',
   token: `Bearer ${localStorage.getItem('jwt')}`
 });
 
