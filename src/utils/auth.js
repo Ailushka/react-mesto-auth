@@ -55,8 +55,8 @@ class Auth {
   }
 }
 
-const auth = new Auth('https://auth.nomoreparties.co');
+const auth = new Auth('https://api.ailushka.nomoredomains.club');
 
 export default auth;
 
-//'https://api.ailushka.nomoredomains.club/'
+//'https://auth.nomoreparties.co'

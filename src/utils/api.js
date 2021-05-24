@@ -107,10 +107,10 @@ class Api {
 }
 
 const api = new Api({
-  url: 'https://api.ailushka.nomoredomains.club',
+  url: 'mesto.nomoreparties.co/v1/cohort-20',
   token: `Bearer ${localStorage.getItem('jwt')}`
 });
 
 export default api;
 
-//mesto.nomoreparties.co/v1/cohort-20', 'aeac4cc4-9284-4753-bb8f-afa2eb1b5233
+//', 'aeac4cc4-9284-4753-bb8f-afa2eb1b5233 https://api.ailushka.nomoredomains.club
