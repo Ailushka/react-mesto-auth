@@ -21,6 +21,7 @@ class Api {
       method: 'GET',
       headers: {
         authorization: this._token,
+        'Content-Type': 'application/json'
       }
     })
     .then(this._checkResponse)
@@ -64,6 +65,7 @@ class Api {
       method: 'DELETE',
       headers: {
         authorization: this._token,
+        'Content-Type': 'application/json'
       }
     })
     .then(this._checkResponse)
@@ -75,6 +77,7 @@ class Api {
       method: hasLike ? 'PUT' : 'DELETE',
       headers: {
         authorization: this._token,
+        'Content-Type': 'application/json'
       }
     })
     .then(this._checkResponse)
