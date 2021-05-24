@@ -1,7 +1,7 @@
 class Api {
-  constructor(url, password) {
+  constructor({ url, token }) {
     this._url = url;
-    this._password = password;
+    this._token = token;
   }
 
   // загрузка информации о пользователе с сервера (получаем данные пользователя)
@@ -9,7 +9,7 @@ class Api {
     return fetch(`${this._url}/users/me`, {
       method: 'GET',
       headers: {
-        authorization: this._password,
+        authorization: this._token,
       }
     })
     .then(this._checkResponse)
@@ -20,7 +20,7 @@ class Api {
     return fetch(`${this._url}/cards`, {
       method: 'GET',
       headers: {
-        authorization: this._password,
+        authorization: this._token,
       }
     })
     .then(this._checkResponse)
@@ -31,7 +31,7 @@ class Api {
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: {
-        authorization: this._password,
+        authorization: this._token,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -47,7 +47,7 @@ class Api {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: {
-        authorization: this._password,
+        authorization: this._token,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -63,7 +63,7 @@ class Api {
     return fetch(`${this._url}/cards/${cardId}`, {
       method: 'DELETE',
       headers: {
-        authorization: this._password,
+        authorization: this._token,
       }
     })
     .then(this._checkResponse)
@@ -71,10 +71,10 @@ class Api {
 
   // постановка или снятие лайка
   toggleLikeCardStatus(cardId, hasLike) {
-    return fetch(`${this._url}/cards/likes/${cardId}`, {
+    return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: hasLike ? 'PUT' : 'DELETE',
       headers: {
-        authorization: this._password,
+        authorization: this._token,
       }
     })
     .then(this._checkResponse)
@@ -85,7 +85,7 @@ class Api {
     return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
       headers: {
-        authorization: this._password,
+        authorization: this._token,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -103,7 +103,10 @@ class Api {
   }
 }
 
-const api = new Api('https://http://api.ailushka.nomoredomains.club');
+const api = new Api({
+  url: 'https://api.ailushka.nomoredomains.club',
+  token: `Bearer ${localStorage.getItem('jwt')}`
+});
 
 export default api;
 
