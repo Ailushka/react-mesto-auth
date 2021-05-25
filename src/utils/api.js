@@ -10,6 +10,7 @@ class Api {
       method: 'GET',
       headers: {
         authorization: this._token,
+        'Content-Type': 'application/json'
       }
     })
     .then(this._checkResponse)
@@ -111,5 +112,4 @@ const api = new Api('https://api.ailushka.nomoredomains.club', `Bearer ${localSt
 
 export default api;
 
-//mesto.nomoreparties.co/v1/cohort-20', 'aeac4cc4-9284-4753-bb8f-afa2eb1b5233
-// https://api.ailushka.nomoredomains.club
+//'mesto.nomoreparties.co/v1/cohort-20', 'aeac4cc4-9284-4753-bb8f-afa2eb1b5233'

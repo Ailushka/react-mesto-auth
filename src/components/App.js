@@ -65,7 +65,7 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
 
     api.toggleLikeCardStatus(card._id, !isLiked).then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
@@ -155,7 +155,7 @@ function App() {
         auth.getContent(token)
           .then((res) => {
             if(res) {
-              setCurrentUserEmail(res.data.email);
+              setCurrentUserEmail(res.email);
             };
             setLoggedIn(true);
             history.push('/');
@@ -190,7 +190,6 @@ function App() {
           <ProtectedRoute
             exact path='/'
             loggedIn={loggedIn}
-            component={Footer}
           />
           <Route path='/signup'>
             <Register onRegister={onRegister} />
@@ -205,6 +204,7 @@ function App() {
             }
           </Route>
         </Switch>
+        <Footer/>
         <InfoTooltip
           status={infoTooltip}
           isOpen={isInfoTooltipOpen}

@@ -60,4 +60,3 @@ const auth = new Auth('https://api.ailushka.nomoredomains.club');
 export default auth;
 
 //'https://auth.nomoreparties.co'
-//https://api.ailushka.nomoredomains.club
