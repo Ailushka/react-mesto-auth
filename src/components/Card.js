@@ -22,12 +22,10 @@ function Card({card, onCardClick, onCardLike, onCardDelete}) {
 
   function handleLikeClick() {
     onCardLike(card);
-    console.log(card);
   }
 
   function handleDeleteClick() {
     onCardDelete(card);
-    console.log(card);
   }
 
   return (
