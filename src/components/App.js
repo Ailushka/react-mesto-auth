@@ -135,7 +135,7 @@ function App() {
         setIsInfoTooltipOpen(true);
         if(res) {
           setInfoTooltip(true);
-          history.push('/sign-in');
+          history.push('/signin');
         } else {
           setInfoTooltip(false);
         }
@@ -145,7 +145,7 @@ function App() {
 
   function onLogOut() {
     localStorage.removeItem('jwt');
-    history.push('/sign-in');
+    history.push('/signin');
   }
 
   function tokenCheck() {
@@ -192,16 +192,16 @@ function App() {
             loggedIn={loggedIn}
             component={Footer}
           />
-          <Route path='/sign-up'>
+          <Route path='/signup'>
             <Register onRegister={onRegister} />
           </Route>
-          <Route path='/sign-in'>
+          <Route path='/signin'>
             <Login onLogin={onLogin} />
           </Route>
           <Route>
             {loggedIn
               ? (<Redirect to='/'/>)
-              : (<Redirect to='/sign-up'/>)
+              : (<Redirect to='/signup'/>)
             }
           </Route>
         </Switch>

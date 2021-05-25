@@ -21,14 +21,14 @@ function Header({currentUserEmail, onLogOut}) {
             className="user-nav__item user-nav__item_type_sign"
             onClick={location.pathname === '/' ? onLogOut : () => {}}
           >
-            <Route path="/sign-in">
-              <Link to="/sign-up" className="user-nav__link">Регистрация</Link>
+            <Route path="/signin">
+              <Link to="/signup" className="user-nav__link">Регистрация</Link>
             </Route>
-            <Route path="/sign-up">
-              <Link to="/sign-in" className="user-nav__link">Войти</Link>
+            <Route path="/signup">
+              <Link to="/signin" className="user-nav__link">Войти</Link>
             </Route>
             <Route exact path="/">
-              <Link to="/sign-in" className="user-nav__link">Выход</Link>
+              <Link to="/signin" className="user-nav__link">Выход</Link>
             </Route>
           </li>
         </ul>
